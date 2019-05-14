@@ -1,0 +1,46 @@
+<div class="container mt-5">
+    <div *ngIf="books?.length > 0;else noBooks">
+        <ul class="list-group">
+            <li *ngFor="let book of books" class="list-group-item">
+                <div class="row">
+                    <div class="col"><strong>{{book.title}}:</strong> {{book.description}}</div>
+                    <div class="col-sm-auto">
+                        <button (click)="editBook($event, book)" class="btn btn-link">Edit</button>
+                    </div>
+                    <div class="col-sm-auto">
+                        <button (click)="deleteBook($event, book)" class="btn btn-link">Delete</button>
+                    </div>
+                </div>
+                <div *ngIf="editState && bookToEdit.id == book.id">
+                    <form (ngSubmit)="updateBook(book)">
+                            <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                <label>Book Title</label>
+                                <input type="text" [(ngModel)]="book.title" name="title" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                <label>Book Description</label>
+                                <input type="text" [(ngModel)]="book.description" name="description" class="form-control">
+                                </div>
+                            </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-12">
+                                <input type="submit" class="btn btn-dark" value="Update Book">
+                            </div>
+                            </div>  
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    <ng-template #noBooks>
+        <ul class="list-group">
+            <li class="list-group-item">There are no items to list</li>
+        </ul>
+    </ng-template>
+</div>

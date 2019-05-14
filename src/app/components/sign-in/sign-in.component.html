@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 mx-auto mt-5 text-center">
+      <div class="card bg-light"> 
+        <div class="card-header">
+          Login
+        </div>       
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <input [(ngModel)]="email" type="text" placeholder="Email" class="form-control">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <input [(ngModel)]="password" type="password" placeholder="Password" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <button class="btn btn-primary" (click)="login()">Login</button>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
